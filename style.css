@@ -80,7 +80,6 @@ body {
 /* 
   Media query for screen widths 480px or less (mobile devices).
   Adjusts the container width to full viewport width.
-  Hides the 4th and 5th panels to simplify layout and improve usability on small screens.
 */
 @media (max-width: 480px) {
     .container {
@@ -88,5 +87,5 @@ body {
     }
 
    
-    }
+  
 }
