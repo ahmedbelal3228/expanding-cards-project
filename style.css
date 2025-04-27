@@ -1,0 +1,94 @@
+/* Import the 'Muli' font from Google Fonts to use throughout the project */
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+/* ________________________________________________________________________________________________________________________________________ */
+/* 
+  Universal selector (*) targets every element on the page.
+  Setting box-sizing to border-box makes width and height include padding and border,
+  which simplifies sizing and layout calculations.
+*/
+* {
+    box-sizing: border-box;
+}
+
+
+/* ________________________________________________________________________________________________________________________________________ */
+/* 
+  The body selector targets the entire page content.
+  This rule centers all content both vertically and horizontally using Flexbox.
+  It also sets the font, removes default margin, limits height to the viewport height,
+  and hides overflow to prevent scrolling.
+*/
+body {
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+/* ________________________________________________________________________________________________________________________________________ */
+/* 
+  The .container class targets the main wrapper holding all panels.
+  It uses Flexbox to arrange child panels in a row.
+  The width is set to 90% of the viewport width to provide some margin on the sides.
+*/
+.container {
+    display: flex;
+    width: 90vw;
+}
+
+/* ________________________________________________________________________________________________________________________________________ */
+/* 
+  The .panel class targets each individual card/panel.
+  It sets background image properties to center and contain the image without repeating.
+  Height and border-radius style the panel shape.
+  Text color is white for better contrast.
+  Cursor pointer indicates the panel is clickable.
+  Flex property controls the default size of each panel within the container.
+  Margin adds spacing between panels.
+  Position relative allows absolutely positioned children inside.
+  Transition enables smooth animation when the panel size changes.
+*/
+.panel {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 50px;
+    cursor: pointer;
+    flex: 0.5;
+    margin: 10px;
+    position: relative;
+    -webkit-transition: all 700ms ease-in;
+}
+
+
+/* ________________________________________________________________________________________________________________________________________ */
+/* 
+  The .panel.active class targets a panel when it is clicked or active.
+  It increases the flex value to make the panel expand wider than others.
+*/
+.panel.active {
+    flex: 5;
+}
+
+
+/* ________________________________________________________________________________________________________________________________________ */
+/* 
+  Media query for screen widths 480px or less (mobile devices).
+  Adjusts the container width to full viewport width.
+  Hides the 4th and 5th panels to simplify layout and improve usability on small screens.
+*/
+@media (max-width: 480px) {
+    .container {
+        width: 100vw;
+    }
+
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5) {
+        display: none;
+    }
+}
